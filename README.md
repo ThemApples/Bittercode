@@ -17,3 +17,5 @@ BitterCode  is a program made for making secret messages for you and friends to 
 ## License & copyright
 
 © Jimmy Young, ThemLemons Co
+
+Licensed under the [MIT Liscence](LICENSE).
