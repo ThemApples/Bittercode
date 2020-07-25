@@ -2,11 +2,11 @@
 
 ** Version 1.0.0**
 
-BitterCode  is a program made for making secret messages for you and friends to among yourself.
+BitterCode is a program on android made for generating encrypting messages and decrypting message. This will allow users to exchange messages to other users secretly.
 
 ## Installation
 
-.Apk file will soon be provided very soon!
+Android users.Apk file coming very soon!
 
 
 ## Contributors 
