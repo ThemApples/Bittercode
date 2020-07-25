@@ -18,4 +18,4 @@ Android users.Apk file coming very soon!
 
 © Jimmy Young, ThemLemons Co
 
-Licensed under the [MIT Liscence](LICENSE).
+Licensed under the [MIT Licence](LICENSE).
