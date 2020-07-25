@@ -1,5 +1,7 @@
 # BitterCode
 
+** Version 1.0.0**
+
 BitterCode  is a program made for making secret messages for you and friends to among yourself.
 
 ## Installation
@@ -7,8 +9,11 @@ BitterCode  is a program made for making secret messages for you and friends to 
 .Apk file will soon be provided very soon!
 
 
-## Contributing 
+## Contributors 
 
+ - Jimmy Young <Jimmyyo12@gmail.com>
 ---
 
 ## License & copyright
+
+© Jimmy Young, ThemLemons Co
