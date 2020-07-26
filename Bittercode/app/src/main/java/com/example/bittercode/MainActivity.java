@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String s_message;
     private String s_encrypt;
     private String s_decrypt;
+    private String storage;
 
     private String special;
     private String special2;
@@ -49,12 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         cro = new BasicCrypto();
         getMessage();
-        //showMessage("Message: " + s_message +"\nEncrypt:" + s_encrypt +"\nDecrypt: "+ s_decrypt);
     }
 
-    private void getdecypt()
+    private void get_encryption()
     {
-        s_decrypt = encrypt.getText().toString();
+        storage = encrypt.getText().toString();
     }
 
     private void encryptData()
@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void decyptData()
     {
-        s_decrypt = new String(cro.decrypt(special2.getBytes()));
+        s_decrypt = new String(cro.decrypt(storage.getBytes()));
+        decrypt.setText("");
     }
 
     private void getMessage()
@@ -85,20 +86,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             special = special + s_encrypt.charAt(i);
         }
 
-        showMessage(special);
+       // showMessage("s1"+special);
     }
 
     private void specialEncryption2()
     {
         special2 = "";
-        //int i = str.length() - 1; i >= 0; i--
-        for(int i =s_encrypt.length() - 1; i>=0 ;i--){
-            special2 = special2 + s_decrypt.charAt(i);
+        try {
+            for(int i =storage.length()-1; i>=0 ;i--){
+                special2 = special2 + storage.charAt(i);
+                //showMessage("s2"+special2);
+            }
+
+            storage = special2;
+        }catch (NullPointerException e) {
+            showMessage("These is no message by with this code.\nPlease place a new code into the decrypt section.");
+
         }
-        showMessage(special2);
+
     }
-
-
 
     @Override
     public void onClick(View view) {
@@ -112,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.decode:
                 showMessage("decode Button");
-                getdecypt();
+                get_encryption();
                 specialEncryption2();
                 decyptData();
                 decrypt.setText(s_decrypt);
