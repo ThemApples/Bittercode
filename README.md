@@ -6,7 +6,7 @@ BitterCode is a program on android made for generating encrypting messages and d
 
 ## Installation
 
-This application CAN ONLY BE USED BY USERS WITH THE ANDROID PLATFORM.
+This application CAN ONLY BE USED BY USERS WITH THE ANDROID PLATFORM.<br />
 The APK is located in the the builds folder.
 
 
