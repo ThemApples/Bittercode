@@ -15,6 +15,12 @@ The APK is located in the the builds folder.
 	- Known Errors:
 	- The program will crash if an unregistered code is put into the decrypt text box
 
+- Bittercode_BETA_v1.1
+	- Update:
+	- UI Improved
+	- Bug Fixed from the previous resolved
+	- Known errors:
+	- Yet to be found
 
 
 ## Contributors 
