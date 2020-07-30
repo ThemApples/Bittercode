@@ -26,7 +26,10 @@ The APK is located in the the builds folder.
 	- Update:
 	- App Icon Updated
 	- Known errors:
-	- Yet to be found
+	- The program cannot decrypt a empty entry
+
+- BitterCode_BETA_v1.3
+	- Coming Soon! 
 
 
 ## Contributors 

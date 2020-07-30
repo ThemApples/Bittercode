@@ -2,6 +2,7 @@ package com.example.bittercode;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String special;
     private String special2;
     private Crypto cro;
+    private String placeholder1;
+    private String placeholder2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +76,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         s_message = message.getText().toString();
     }
 
-    private void showMessage(String m)
-    {
+    private void showMessage(String m) {
         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
+    }
+
+    public void confusion(String code)
+    {
+        char[] ch = code.toCharArray();
+        String nMessage = "";
+        StringBuilder sb =  new StringBuilder(nMessage);
+
+        for (char i =0; i<ch.length;i++)
+        {
+            sb.append(ch[i]+=ch.length);
+        }
+
+        placeholder1 = sb.toString();
+        special = placeholder1;
+        showMessage("1: " + sb.toString());
+    }
+
+    public void goback(String code)
+    {
+        char[] ch = code.toCharArray();
+        String nMessage = "";
+        StringBuilder sb =  new StringBuilder(nMessage);
+
+        for (char i =0; i<ch.length;i++)
+        {
+            sb.append(ch[i]-=ch.length);
+        }
+
+        placeholder2 = sb.toString();
+        storage = placeholder2;
+        showMessage("2: " + sb.toString());
     }
 
     private void specialEncryption()
@@ -86,24 +120,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             special = special + s_encrypt.charAt(i);
         }
 
+        confusion(special);
        // showMessage("s1"+special);
     }
 
     private void specialEncryption2()
     {
         special2 = "";
+        goback(placeholder1);
         try {
             for(int i =storage.length()-1; i>=0 ;i--){
                 special2 = special2 + storage.charAt(i);
                 //showMessage("s2"+special2);
             }
-
             storage = special2;
         }catch (NullPointerException e) {
             showMessage("These is no message by with this code.\nPlease place a new code into the decrypt section.");
 
         }
+    }
 
+    public void changeAct()
+    {
+        Intent i = new Intent(getApplicationContext(),DisplayPage.class);
+        startActivity(i);
+        finish();
     }
 
     @Override
@@ -122,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 specialEncryption2();
                 decyptData();
                 decrypt.setText(s_decrypt);
+                changeAct();
                 break;
         }
     }
