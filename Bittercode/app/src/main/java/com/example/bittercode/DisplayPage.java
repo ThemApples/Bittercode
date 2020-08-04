@@ -12,17 +12,25 @@ public class DisplayPage extends AppCompatActivity implements View.OnClickListen
 
     private TextView display;
     private Button goback;
+    private String cntxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_page);
+        init();
+    }
+
+    public void init(){
         display =  (TextView) findViewById(R.id.de);
         goback = (Button) findViewById(R.id.goback);
+        goback.setOnClickListener(this);
+        cntxt= getIntent().getStringExtra("DECRYPT_STRING");
+        display.setText(cntxt);
     }
 
     private void changeA() {
-        Intent i = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(i);
+        Intent s = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(s);
         finish();
     }
 

@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView message;
-    private TextView decrypt;
     private TextView encrypt;
 
     private Button generate;
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void config()
     {
         message = (TextView) findViewById(R.id.message);
-        decrypt = (TextView) findViewById(R.id.decrypt);
         encrypt = (TextView) findViewById(R.id.encrypt);
 
         generate = (Button) findViewById(R.id.generate);
@@ -68,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void decyptData()
     {
         s_decrypt = new String(cro.decrypt(storage.getBytes()));
-        decrypt.setText("");
     }
 
     private void getMessage()
@@ -143,8 +140,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void changeAct()
     {
         Intent i = new Intent(getApplicationContext(),DisplayPage.class);
+        i.putExtra("DECRYPT_STRING",s_decrypt);
         startActivity(i);
         finish();
+    }
+
+    public void checkNUll() {
+       try {
+           get_encryption();
+           specialEncryption2();
+           decyptData();
+           changeAct();
+       }catch (NullPointerException e) {
+           showMessage("There is nothing in the decryption slot.\nPlease place your code in before pressing the decrypt button");
+       }
     }
 
     @Override
@@ -159,11 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.decode:
                 showMessage("decode Button");
-                get_encryption();
-                specialEncryption2();
-                decyptData();
-                decrypt.setText(s_decrypt);
-                changeAct();
+                checkNUll();
                 break;
         }
     }
