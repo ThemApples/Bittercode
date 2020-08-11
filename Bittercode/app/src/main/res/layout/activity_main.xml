@@ -11,7 +11,7 @@
         android:id="@+id/message"
         android:layout_width="298dp"
         android:layout_height="204dp"
-        android:background="@drawable/rounded_borders"
+        android:background="@layout/rounded_borders"
         android:gravity="top|left"
         android:hint="Message"
         android:inputType="textMultiLine"
@@ -27,14 +27,14 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.132" />
 
     <EditText
         android:id="@+id/encrypt"
         android:layout_width="303dp"
         android:layout_height="193dp"
         android:layout_marginTop="48dp"
-        android:background="@drawable/rounded_borders"
+        android:background="@layout/rounded_borders"
         android:gravity="top|left"
         android:hint="Encrypted code"
         android:inputType="textMultiLine"
@@ -75,5 +75,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generate"
         app:layout_constraintVertical_bias="0.094" />
+
+    <Button
+        android:id="@+id/info"
+        android:layout_width="67dp"
+        android:layout_height="62dp"
+        android:background="@drawable/priority"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

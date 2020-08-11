@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button generate;
     private Button decode;
+    private Button information;
 
     private String s_message;
     private String s_encrypt;
@@ -39,12 +40,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         message = (TextView) findViewById(R.id.message);
         encrypt = (TextView) findViewById(R.id.encrypt);
+        information = (Button) findViewById(R.id.info);
 
         generate = (Button) findViewById(R.id.generate);
         decode = (Button) findViewById(R.id.decode);
 
         generate.setOnClickListener(this);
         decode.setOnClickListener(this);
+        information.setOnClickListener(this);
     }
 
     public void generateCrypto()
@@ -106,25 +109,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         placeholder2 = sb.toString();
         storage = placeholder2;
-        showMessage("2: " + sb.toString());
+        showMessage("1");
     }
 
     private void specialEncryption()
     {
         special = "";
-        //int i = str.length() - 1; i >= 0; i--
         for(int i =s_encrypt.length() - 1; i>=0 ;i--){
             special = special + s_encrypt.charAt(i);
         }
-
         confusion(special);
-       // showMessage("s1"+special);
     }
 
     private void specialEncryption2()
     {
         special2 = "";
-        goback(placeholder1);
+        goback(storage);
         try {
             for(int i =storage.length()-1; i>=0 ;i--){
                 special2 = special2 + storage.charAt(i);
@@ -132,8 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             storage = special2;
         }catch (NullPointerException e) {
-            showMessage("These is no message by with this code.\nPlease place a new code into the decrypt section.");
-
+            showMessage("1: These is no message by with this code.\nPlease place a new code into the decrypt section.");
         }
     }
 
@@ -145,6 +144,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         finish();
     }
 
+    public void changeInfo()
+    {
+        Intent i = new Intent(getApplicationContext(),InformationPage.class);
+        startActivity(i);
+        finish();
+    }
+
     public void checkNUll() {
        try {
            get_encryption();
@@ -152,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            decyptData();
            changeAct();
        }catch (NullPointerException e) {
-           showMessage("There is nothing in the decryption slot.\nPlease place your code in before pressing the decrypt button");
+           showMessage("2: There is nothing in the decryption slot.\nPlease place your code in before pressing the decrypt button");
        }
     }
 
@@ -169,6 +175,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.decode:
                 showMessage("decode Button");
                 checkNUll();
+                break;
+            case R.id.info:
+                showMessage("Information Button");
+                changeInfo();
                 break;
         }
     }
