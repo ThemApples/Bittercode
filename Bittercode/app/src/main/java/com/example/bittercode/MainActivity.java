@@ -1,7 +1,11 @@
 package com.example.bittercode;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button generate;
     private Button decode;
     private Button information;
+    private Button copy_clip;
 
     private String s_message;
     private String s_encrypt;
@@ -33,14 +38,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         config();
+        //setToolBar();
         generateCrypto();
     }
 
-    private void config()
-    {
+    private void config() {
         message = (TextView) findViewById(R.id.message);
         encrypt = (TextView) findViewById(R.id.encrypt);
         information = (Button) findViewById(R.id.info);
+        copy_clip = (Button) findViewById(R.id.copy_clipboard_encrypted);
 
         generate = (Button) findViewById(R.id.generate);
         decode = (Button) findViewById(R.id.decode);
@@ -48,6 +54,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         generate.setOnClickListener(this);
         decode.setOnClickListener(this);
         information.setOnClickListener(this);
+        copy_clip.setOnClickListener(this);
+    }
+
+    private void setToolBar() {
+       // Toolbar toolb = findViewById(R.id.toolbar);
+        //toolb.setTitle("Bittercode");
+        //setSupportActionBar(toolb);
+
     }
 
     public void generateCrypto()
@@ -162,6 +176,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        }
     }
 
+    private void clip_copy(){
+
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Simple text", placeholder1);
+        clipboard.setPrimaryClip(clip);
+        
+    }
+
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
@@ -179,6 +201,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.info:
                 showMessage("Information Button");
                 changeInfo();
+                break;
+            case R.id.copy_clipboard_encrypted:
+                showMessage("Copy To clipboard pressed");
+                clip_copy();
                 break;
         }
     }
