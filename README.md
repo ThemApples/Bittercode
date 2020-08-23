@@ -1,6 +1,6 @@
 # BitterCode
 
-** Version 1.4.1**
+** Version 1.4.2**
 
 BitterCode is a program on android made for generating encrypting messages and decrypting message. This will allow users to exchange messages to other users secretly.
 
@@ -38,7 +38,9 @@ The APK is located in the the builds folder.
 	- copy encryption code will attempt to copy even if there is nothing in it
 
 - BitterCode_BETA_v1.4
-	- Coming soon
+	- Update: 
+	- copy encryption code will attempt to copy even if there is nothing in it FIXED
+	- pop up messages removed except for anything that is important 
 
 
 

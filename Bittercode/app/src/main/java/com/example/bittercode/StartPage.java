@@ -56,7 +56,7 @@ public class StartPage extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.cont:
-                showMessage("continue button presses");
+                //showMessage("continue button presses");
                 Continue();
                 break;
         }

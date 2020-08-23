@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         placeholder1 = sb.toString();
         special = placeholder1;
-        showMessage("1: " + sb.toString());
+        //showMessage("1: " + sb.toString());
     }
 
     public void goback(String code)
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         placeholder2 = sb.toString();
         storage = placeholder2;
-        showMessage("1");
+        //showMessage("1");
     }
 
     private void specialEncryption()
@@ -181,29 +181,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("Simple text", placeholder1);
         clipboard.setPrimaryClip(clip);
-        
+        showMessage(placeholder1+" has been copied to clipboard");
+
+        try{
+            if(placeholder1.isEmpty()){
+                showMessage("Nothing is printed");
+            }
+        }catch (NullPointerException e){
+            showMessage("Nothing is copied cause there is nothing in the decrypt function");
+        }
     }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.generate:
-                showMessage("Generate Button");
+                //showMessage("Generate Button");
                 generateCrypto();
                 encryptData();
                 specialEncryption();
                 encrypt.setText(special);
                 break;
             case R.id.decode:
-                showMessage("decode Button");
+                //showMessage("decode Button");
                 checkNUll();
                 break;
             case R.id.info:
-                showMessage("Information Button");
+                //showMessage("Information Button");
                 changeInfo();
                 break;
             case R.id.copy_clipboard_encrypted:
-                showMessage("Copy To clipboard pressed");
+                //showMessage("Copy To clipboard pressed");
                 clip_copy();
                 break;
         }
